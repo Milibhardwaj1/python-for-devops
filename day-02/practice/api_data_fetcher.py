@@ -1,9 +1,33 @@
 import requests
+import json
+api_url = "https://api.mfapi.in/mf/search"
 
-api_url = "https://dog.ceo/api/breeds/image/random"
+params = {
+    "q": "hdfc"
+}
+headers = {
+    "Accept": "application/json"
+}
+response = requests.get(url=api_url, headers=headers, params=params)
 
-response = requests.get(url=api_url)
+print("Status Code:", response.status_code)
 
-for key, value in response.json().items():
-    print(key, value)
+data = response.json()
+# print(type(data))
+# print(data)
+result = [] #Empty List
+for d in data:
+    if d["schemeCode"]>100000 and d["schemeCode"]<100500:
+        result.append(d["schemeName"])
+        print(result)
+with open("output.json", "w") as f:
+    json.dump(result, f)
+print("File written successfully")
+
+
+
+# print("File written successfully")
+# print(response.json())
+# for key, value in response.json().items():
+#     print(key, value)
 
