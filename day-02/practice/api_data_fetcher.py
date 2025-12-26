@@ -25,9 +25,3 @@ with open("output.json", "w") as f:
 print("File written successfully")
 
 
-
-# print("File written successfully")
-# print(response.json())
-# for key, value in response.json().items():
-#     print(key, value)
-
