@@ -22,4 +22,3 @@ def log_level_frequency():
 
 log_level_frequency()
 
-
